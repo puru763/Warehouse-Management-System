@@ -7,21 +7,20 @@ import com.WarehouseManagementSystem.orderservice.entity.OrderLineItems;
 import com.WarehouseManagementSystem.orderservice.exception.OrderPlacementException;
 import com.WarehouseManagementSystem.orderservice.repository.OrderRepository;
 import com.WarehouseManagementSystem.orderservice.service.OrderService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.UUID;
 
 @Service
+@RequiredArgsConstructor
+@Transactional
 public class OrderServiceImpl implements OrderService {
 
     private final OrderRepository orderRepository;
-
-    @Autowired
-    public OrderServiceImpl(OrderRepository orderRepository) {
-        this.orderRepository = orderRepository;
-    }
 
     @Override
     public void placeOrder(OrderRequest orderRequest) throws OrderPlacementException {
