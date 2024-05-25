@@ -36,7 +36,6 @@ public class OrderServiceImpl implements OrderService {
             order.setOrderLineItemsList(orderLineItems);
 
 
-            //chek  here  if  it  is  available   in inventry  or  not
             orderRepository.save(order);
         } catch (Exception e) {
             throw new OrderPlacementException("Failed to place order", e);
